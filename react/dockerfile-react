@@ -1,0 +1,16 @@
+FROM node:14
+
+# Create app directory
+WORKDIR /app
+
+
+COPY ./react/client/package*.json ./
+
+RUN npm install
+
+# copy all files into the image
+COPY ./react/client/ .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
